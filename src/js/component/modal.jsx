@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "../../styles/modal.css";
 
 const Modal = ({ title, body, img }) => {
+  // Could refactor isVis back to prop,
+  // use callback function to set visibility.
   const [isVis, setIsVis] = useState(true);
-  
+
   const handleClick = () => {
     setIsVis(!isVis);
   }
