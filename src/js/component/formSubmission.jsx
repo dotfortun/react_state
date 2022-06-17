@@ -5,7 +5,7 @@ const Form = () => {
   const [password, setPassword] = useState("");
   const [checkbox, setCheckbox] = useState(false);
   const [someList, setList] = useState([]);
-  
+
   const [render, rerender] = useState(false);
 
   const handleEmailUpdate = (event) => {
@@ -21,14 +21,14 @@ const Form = () => {
   };
 
   const updateList = () => {
-    let list = someList
+    let list = someList;
     list.push({
       email: email,
       pass: password,
       isChecked: checkbox,
     });
     setList(list);
-  }
+  };
 
   const handleSubmit = () => {
     console.log({
@@ -45,7 +45,7 @@ const Form = () => {
       <div className="row">
         <div className="col col-4 offset-4">
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
             </label>
             <input
@@ -61,7 +61,7 @@ const Form = () => {
             </div>
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
             <input
@@ -80,7 +80,7 @@ const Form = () => {
               value={checkbox}
               onChange={handleCheckbox}
             />
-            <label className="form-check-label" for="exampleCheck1">
+            <label className="form-check-label" htmlFor="exampleCheck1">
               Check me out
             </label>
           </div>
@@ -96,7 +96,12 @@ const Form = () => {
             <li>email: {email}</li>
             <li>password: {password}</li>
             <li>checkbox: {checkbox.toString()}</li>
-            <li>all login attempts: {someList.toString()}</li>
+            <li>
+              all login attempts:{" "}
+              {someList.map((elem) => {
+                return JSON.stringify(elem);
+              })}
+            </li>
           </ul>
         </div>
       </div>
