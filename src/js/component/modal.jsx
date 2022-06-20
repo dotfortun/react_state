@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/modal.css";
 
-const Modal = ({ title, body, img }) => {
-  // Could refactor isVis back to prop,
-  // use callback function to set visibility.
-  const [isVis, setIsVis] = useState(true);
-
-  const handleClick = () => {
-    setIsVis(!isVis);
-  }
+const Modal = ({ title, children, img, isVis, handleClick }) => {
 
   return (
     <div
@@ -20,7 +13,7 @@ const Modal = ({ title, body, img }) => {
         <img src={img} className="card-img" alt="..." />
         <div className="card-img-overlay">
           <h5 className="card-title">{title}</h5>
-          <p className="card-text">{body}</p>
+          <p className="card-text">{children}</p>
           <p className="card-text">Last updated 3 mins ago</p>
         </div>
       </div>
