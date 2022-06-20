@@ -12,23 +12,15 @@ import Form from "./component/formSubmission.jsx";
 import TrafficLight from "./component/trafficlight.jsx";
 import { Carousel } from "./component/carousel.jsx";
 import Modal from "./component/modal.jsx";
-
-const img = [
-  "https://placekitten.com/200",
-  "https://placekitten.com/200",
-  "https://placekitten.com/200",
-  "https://placekitten.com/756/320",
-];
+import Parent from "./component/parent.jsx";
 
 //render your react application
 ReactDOM.render(
   <React.Fragment>
     <Form />
-    <Modal
-      title="This is a modal!"
-      body="Some content."
-      img={img[3]}
-    />
+    <Parent>
+      <p>This content will show up inside div.parent_div.</p>
+    </Parent>
   </React.Fragment>,
   document.querySelector("#app")
 );
